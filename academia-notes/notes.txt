@@ -42,11 +42,7 @@ Conhece todos os controladores e é
 ele que sabe qual é o controlador que deverá
 ser chamado.
 
-Opção 1:
-criar variável global e carregar todos 
-os ficheiros de todas as componentes.
-
-Opção 2:
+Usage:
 Usar requirejs.org para carregar
 todos os ficheiros.
 <script data-main="js/app" src=HTTPS DO REQUIRE JS></script>

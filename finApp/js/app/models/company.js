@@ -1,0 +1,8 @@
+/**
+ * Company Model
+ */
+
+ define(function() {
+ 
+
+})

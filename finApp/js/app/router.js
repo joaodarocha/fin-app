@@ -41,13 +41,17 @@
 
         currentHash = window.location.hash;
         require(['controllers/' + controllerName], function(controller){
-            
+            controller.start();
         })
 
     }
 
     function loadDefaultController(){
 
+        currentHash = defaultRouter;
+        require(['controllers/' + router.list.controller], function(controller){
+            controller.start();
+        })
     }
 
     return {

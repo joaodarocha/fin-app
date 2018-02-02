@@ -1,0 +1,8 @@
+/**
+ * Details Model
+ */
+
+ define(function() {
+ 
+
+})

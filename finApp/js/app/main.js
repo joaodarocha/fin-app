@@ -5,5 +5,5 @@ require(['router'], function(router) {
         console.log('Document is ready.');
 
         router.start;
-    })
-})
+    });
+});

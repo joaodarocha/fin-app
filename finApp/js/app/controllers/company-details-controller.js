@@ -2,7 +2,7 @@
  * Company Details Controller 
  */
 
- define(function() {
+define(function() {
  
 
-})
+});

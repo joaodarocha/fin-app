@@ -2,7 +2,16 @@
  * Company Model
  */
 
- define(function() {
- 
+define(function() {
 
-})
+    function Company(ticker, name) {
+        this.ticker = ticker;
+        this.name = name;
+    }
+
+    return {
+        ticker: this.ticker,
+        name: this.name
+    };
+
+});

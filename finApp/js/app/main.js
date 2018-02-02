@@ -1,5 +1,4 @@
-
-require(['router'], function(router) {
+require(['./router'], function(router) {
 
     $(document).ready(function() {
         console.log('Document is ready.');

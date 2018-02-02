@@ -7,11 +7,11 @@ define(function() {
     var routes = {
         list: {
             hash: '#list',
-            controller: 'company-list-ctrl'
+            controller: 'company-list-controller'
         },
         details: {
             hash: '#details',
-            controller: 'company-details-ctrl'
+            controller: 'company-details-controller'
         }
     };
 
@@ -21,6 +21,9 @@ define(function() {
     function start() {
         window.location.hash = window.location.hash || routes[defaultRoute].hash;
         currentHash = window.location.hash;
+        console.log('router start');
+
+        loadDefaultController();
 
         setInterval(hashCheck, 100);
     }
@@ -35,6 +38,7 @@ define(function() {
         var routeName = Object.keys(routes).find(function(name) {
             return window.location.hash === routes[name].hash;
         });
+        console.log(routeName);
 
         // load default controller if !routeName
         if (!routeName) {
@@ -42,8 +46,9 @@ define(function() {
             return;
         }
 
+        console.log('hasCheck');
         // load controller of the route => routes[routeName].controller
-        loadController(routeName);
+        loadController(routes[routeName].controller);
 
     }
 

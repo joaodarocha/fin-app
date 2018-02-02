@@ -8,7 +8,28 @@ define([
     '../controllers/company-statements-controller',
     '../models/company',
     '../models/details' 
-], function() {
+], function(companyDetailsController, companyListController, statementsController, company, details) {
  
+    function getDetails() {
 
+    }
+
+    function list() {
+
+    }
+
+    function setTicker() {
+
+    }
+
+    function authenticate() {
+
+    }
+
+    return {
+        getDetails: getDetails,
+        list: list,
+        setTicker: setTicker,
+        authenticate: authenticate
+    };
 });

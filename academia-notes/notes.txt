@@ -31,8 +31,8 @@ Usar os AJAX Requests
 
 Ir ao intrinio.com e registar => USERNAME, PASSWORD
 var api = {
-    username: '[USERNAME]',
-    password: '[PASSWORD]',
+    username: '1ce6d758d2a53cd277d18ed0f990cec2',
+    password: '6f2636b7f91e15b98d55d9959cef3b2e',
     url: 'https://api.intrinio.com',
 };
 

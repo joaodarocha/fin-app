@@ -10,9 +10,14 @@ define([
     function start() {
         console.log('Start list controller.');
         service.getDetails();
+        listView.bind('search', searchHandler);
         listView.render();
     }
 
+    function searchHandler(event) {
+        console.log(event);
+
+    }
 
     return {
         start: start,

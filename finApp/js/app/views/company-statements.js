@@ -2,7 +2,7 @@
  * Company Statements View 
  */
 
- define(function() {
+define(function() {
  
 
-})
+});

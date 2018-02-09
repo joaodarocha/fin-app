@@ -50,7 +50,7 @@ define([
     function apiRequest(path, cb) {
         $.ajax({
             headers: {
-                Authorization: authenticate()
+                'Authorization': authenticate()
             },
             url: 'https://api.intrinio.com' + path,
             type: 'GET',
@@ -64,7 +64,7 @@ define([
         });
     }
 
-    function authenticate(xhr) {
+    function authenticate() {
         var username = '1ce6d758d2a53cd277d18ed0f990cec2';
         var password = '6f2636b7f91e15b98d55d9959cef3b2e';
         return 'Basic' + btoa(username + ':' + password);
@@ -74,6 +74,5 @@ define([
         getDetails: getDetails,
         list: list,
         setTicker: setTicker,
-        authenticate: authenticate
     };
 });

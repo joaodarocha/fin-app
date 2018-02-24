@@ -9,9 +9,5 @@ define(function() {
         this.name = name;
     }
 
-    return {
-        ticker: this.ticker,
-        name: this.name
-    };
-
+    return Company; 
 });

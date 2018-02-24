@@ -16,17 +16,40 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.14/semantic.min.css" 
               integrity="sha256-FpjP45Pz019159CFCReBCsZtVeCvGawN2Om1w+SIi0A="
               crossorigin="anonymous" />
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
     </head>
-    <body>
+    <body class="ui segment" style="text-align: center">
+            <br>
+            <h1 class="ui header">
+                <i class="far fa-money-bill-alt"></i>
+                <div class="content">
+                   FinApp 
+                </div>
+            </h1>
+            <br>
+        
+            <div class="ui buttons" style="text-align: center">
+                <a class="ui button" href="#list">SEARCH</a>
+                <a class="ui button" href="#details">DETAILS</a>
+            </div>
+            <br>
+            <br>
+        
+            <div class="ui grid container">
+                <div class="row">
+                    <div class="six wide column"></div>
+                    <div id="app" clas="four wide column" text-align="center"></div>
+                    <div class="six wide column"></div>
+                </div>
+            </div>
+        
         <!-- Add your site or application content here -->
-        <div id="app">BITOQUES dentro da finApp</div>
         
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
 
-        <script data-main="js/app/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
+        <script data-main="js/app" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js"></script>
     </body>
 </html>

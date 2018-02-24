@@ -1,42 +1,53 @@
 /**
- * List View 
+ * List View
  */
 
 define(function() {
- 
-    function render() {
-        $('#app').html(
-            'Search <input type="text" id="params">' +
-            '<button id=search>Search</button>'
-        );
-       
+
+    function render(companies) {
+        console.log('Render List View');
+        drawSearchInput();
+
+        if(companies) {
+            drawTable(companies);
+        }
     }
 
     function drawSearchInput() {
+        $('#app').html( '<br>' +
+                        '<div class="ui input">' +
+                            '<span class="fas fa-search"></span>' +
+                            '<input type="text" id="params">' +
+                            '<button class="ui basic button" id="search">' +
+                                'Search' +
+                            '</button>' +
+                        '</div>' + 
+                        '<div id="list"></div>');
 
     }
-    
+
+    function drawTable(companies) {
+
+    }
 
     function bind(symbol, element, trigger, handler) {
-
-        if( trigger === 'keypress') {
-
-            handler = function(e) {
-
-                if(e.which === 13) { // Enter key pressed
-                    $('#search').click(); // Trigger search button click event
-                }
-            };
+        if (trigger === 'keypress') {
+            handler = enterPressed;
         }
 
         $(symbol + element).on(trigger, handler);
     }
 
-  
+    function enterPressed(keyPressed) {
+        if (keyPressed.which === 13) {
+            // Enter key was pressed
+            $('#search').click();
+        }
+    }
 
     return {
         render: render,
-        bind: bind,
+        bind: bind
         /*
         bindSearchHandler: bindSearchHandler,
         bindCompanyHandler: bindCompanyHandler

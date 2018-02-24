@@ -4,18 +4,31 @@
 
 define([
     'services/company-service',
-    'views/company-list'
-],function(service, listView) {
+    'views/list-view'
+],function(companyService, listView) {
  
     function start() {
         console.log('Start list controller.');
-        service.getDetails();
-        listView.bind('search', searchHandler);
+        companyService.getDetails();
         listView.render();
+        listView.bind('#', 'search', 'click', searchHandler);
+        listView.bind('.', 'details', 'click', companyHandler);
+        listView.bind('#', 'params', 'keypress', searchHandler);
     }
 
     function searchHandler(event) {
-        console.log(event);
+
+        console.log('**SearchHandler triggered');
+        queryParams = $('#params').val();
+        console.log(queryParams);
+
+        companyService.searchData(start, queryParams);
+    }
+
+    function companyHandler(event) {
+
+        console.log('**CompanyHandler triggered');
+        // console.log(event);
 
     }
 

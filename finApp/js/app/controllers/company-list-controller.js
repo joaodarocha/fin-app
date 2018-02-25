@@ -9,22 +9,29 @@ define([
  
     var pageSize = 10;
     var currentPage = 1;
+    var queryParams;
 
     function start(data) {
         console.log('Start list controller.');
-        companyService.getDetails();
+        console.log('queryParams');
+        console.log(this.queryParams);
         renderView(data);
         bindHandlersToView();
+        
+        if(queryParams) {
+            companyService.searchData(start, this.queryParams, setQueryPArams);
+        }
+
     }
 
     function searchHandler(event) {
 
         console.log('**SearchHandler triggered');
-        var queryParams = $('#params').val().toUpperCase();
-        queryParams += '&page_size=' + 10;
+        this.queryParams = $('#params').val().toUpperCase();
+        this.queryParams += '&page_size=' + 10;
         console.log(queryParams);
 
-        companyService.searchData(start, queryParams);
+        companyService.searchData(start, this.queryParams, setQueryPArams);
     }
 
     function detailsHandler(event) {
@@ -59,9 +66,16 @@ define([
         this.currentPage = newPage;
     }
 
+    function setQueryPArams(newParams) {
+        console.log('setQueryParams');
+        console.log(newParams);
+        this.queryParams = newParams;
+    }
+
     return {
         start: start,
         getCurrentPage: getCurrentPage,
-        setCurrentPage: setCurrentPage
+        setCurrentPage: setCurrentPage,
+        setQueryPArams: setQueryPArams
     };
 });

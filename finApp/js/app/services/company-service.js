@@ -43,7 +43,7 @@ define(['../models/company', '../models/details'], function(
 
     function list() {}
 
-    function searchData(callBackFn, queryParams) {
+    function searchData(callBackFn, queryParams, updateQueryParams) {
         var path = '/companies?query=' + queryParams;
 
         apiRequest(path, function(err, results) {
@@ -77,6 +77,9 @@ define(['../models/company', '../models/details'], function(
             console.log(companies);
 
             callBackFn(companies);
+            console.log('Updating query params');
+            console.log(queryParams);
+            updateQueryParams(queryParams);
         });
 
     }

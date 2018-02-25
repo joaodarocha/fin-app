@@ -8,7 +8,7 @@ define(['../models/company', '../models/details'], function(
 ) {
     var currentTicker;
 
-    function getDetails() {
+    function getDetails(callBackFn, ticker) {
         if (!currentTicker) {
             return;
         }
@@ -23,21 +23,27 @@ define(['../models/company', '../models/details'], function(
                 return;
             }
 
+            // console.log(results.industry_category);
+
             companyDetails = new CompanyDetails(
                 results.ticker,
                 results.name,
-                results.short_description,
+                results.business_address,
+                results.hq_state,
+                results.hq_country,
                 results.ceo,
-                results.company_url,
-                results.business_address
+                results.sector,
+                results.industry_group,
+                results.industry_category,
+                results.short_description
             );
-            cb(companyDetails);
+            callBackFn(companyDetails);
         });
     }
 
     function list() {}
 
-    function searchData(cb, queryParams) {
+    function searchData(callBackFn, queryParams) {
         var path = '/companies?query=' + queryParams;
 
         apiRequest(path, function(err, results) {
@@ -53,6 +59,7 @@ define(['../models/company', '../models/details'], function(
                 };
             }
 
+            console.log(results);
             var receivedData = results.data;
 
             if(receivedData.length < 1) {
@@ -68,7 +75,10 @@ define(['../models/company', '../models/details'], function(
             });
 
             console.log(companies);
+
+            callBackFn(companies);
         });
+
     }
 
     function apiRequest(path, cb) {
